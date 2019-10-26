@@ -20,9 +20,9 @@ You won't write any code in this section, just open up the image and take a look
 
 You may use the Rails generator commands to generate your tables in this assignment.
 
-**User:** A user should have a first_name, last_name, email, and password_hash (all of type string).
-**Status:** A status should have a reference to the user table and a text column of type text.
-**Friendship:** A friendship should have a reference to a `user`, a reference to a `friend`, and a state of type `string`. Since there is no friend table, there are a couple of ways to create this reference. The first is to use the references type and then open the created migration and remove , `foreign_key: true` next to friend. The second is to make a `friend_id` column of type `integer`. I recommend the first.
+1. **User:** A user should have a first_name, last_name, email, and password_hash (all of type string).
+2. **Status:** A status should have a reference to the user table and a text column of type text.
+3. **Friendship:** A friendship should have a reference to a `user`, a reference to a `friend`, and a state of type `string`. Since there is no friend table, there are a couple of ways to create this reference. The first is to use the references type and then open the created migration and remove , `foreign_key: true` next to friend. The second is to make a `friend_id` column of type `integer`. I recommend the first.
 
 ## Models
 
@@ -235,6 +235,22 @@ Some common methods that we use are: `where`, `find_by`, `limit`, and `order`. T
 `where` and `find_by` take in a hash, so you can enter as many parameters into the method as you want.
 
 The nice thing is that you can also chain these methods in any combination like so: `User.where(first_name: 'Grace').limit(10).order(id: :desc)`. But note that sometimes the order in which the methods are chained matters. Is `User.limit(10).where(first_name: 'Grace').order(id: :desc)` different from `User.where(first_name: 'Grace').limit(10).order(id: :desc)`? We'll leave that as an exercise for you.
+
+## Extra Credit
+Here are a few extra credit ideas you can try out:
+
+- Add additional validations for your models (Easy) 
+- Add a profile picture or avatar for your user (Medium)
+- Add friends list to the user's profile page (Medium)
+- Enable comments and likes to user's statuses (Medium)
+- Use React/Vue to Replace ERB (Hard)
+
+Each "Easy" is worth 5% more points. Each "Easy" feature not listed here is worth 6% more points.
+Each "Medium" is worth 10% more points. Each "Medium" feature not listed here is worth 12% more points.
+Each "Hard" is worth 15% more points. Each "Hard" feature not listed here is worth 18% more points.
+
+You can ask about the implementation of all extra credit features in office hours or on CampusWire public channels / public questions.
+
 
 ## Submission
 
