@@ -19,6 +19,7 @@ You won't write any code in this section, just open up the image and take a look
 ## Migrations
 
 You may use the Rails generator commands to generate your tables in this assignment.
+We recommend creating all of these with the model generator (the user model file is already created for you though).
 
 1. **User:** A user should have a first_name, last_name, email, and password_hash (all of type string).
 2. **Status:** A status should have a reference to the user table and a text column of type text.
@@ -27,6 +28,8 @@ You may use the Rails generator commands to generate your tables in this assignm
 ## Models
 
 ### User Model
+
+The user model file is already provided to you with some starter code. You should be creating only the **migration** file for this.
 
 You will implement four instance methods that you can use on any user instance:
 
@@ -255,5 +258,6 @@ You can ask about the implementation of all extra credit features in office hour
 ## Submission
 
 1. Commit your changes and push your changes to Gitlab.
-2. Make a zip for this folder, and upload it on Canvas.
-3. In your canvas submission, make sure you put the **link** of your deployed Facebook Lite site in submission comment.
+2. Make sure you add your assigned TA as a collaborator to your Gitlab repo. 
+3. Make a zip for this folder, and upload it on Canvas.
+4. In your canvas submission, make sure you put the **link** of your deployed Facebook Lite site in submission comment.
