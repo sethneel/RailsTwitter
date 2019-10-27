@@ -144,6 +144,7 @@ Before you the homework, you should deploy your project to Heroku the same way y
 1. Commit your changes and push your changes to Gitlab.
 2. Make a zip for this folder, and upload it on Canvas.
 3. In your canvas submission, make sure you put the link of your deployed project in submission comment.
+4. Make sure you add your assigned TA as a collaborator to your Gitlab repo. 
 
 
 ## Extra Credits
@@ -161,3 +162,17 @@ Each "Hard" is worth 15% more points. Each "Hard" feature not listed here is wor
 You can ask about the implementation of all extra credit features in office hours or on CampusWire public channels / public questions.
 
 
+## Extra Credit
+Here are a few extra credit ideas you can try out:
+
+1. Avatar for users (Medium, to be discussed in lectures)
+2. Add Read/Like/Dislike Counts to statuses (Easy, covered)
+3. Facebook-style Friendship (Medium, [see this post](https://smartfunnycool.com/friendships-in-activerecord/))
+4. Facebook Messenger (Hard, may discuss in lecture)
+5. [Add your own]
+
+Each "Easy" is worth 5% more points. Each "Easy" feature not listed here is worth 6% more points.
+Each "Medium" is worth 10% more points. Each "Medium" feature not listed here is worth 12% more points.
+Each "Hard" is worth 15% more points. Each "Hard" feature not listed here is worth 18% more points.
+
+You can ask about the implementation of all extra credit features in office hours or on CampusWire public channels / public questions.
