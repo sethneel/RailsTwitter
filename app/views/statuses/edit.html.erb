@@ -2,5 +2,5 @@
 
 <%= render 'form', status: @status %>
 
-<%= link_to 'Show', @status %> |
-<%= link_to 'Back', user_statuses_path(@user, @status) %>
+<%= link_to 'Show', user_status_path(@user, @status) %> |
+<%= link_to 'Back', user_statuses_path(@user) %>

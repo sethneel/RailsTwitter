@@ -5115,3 +5115,463 @@ Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 9
 NoMethodError (undefined method `statuses' for nil:NilClass):
   
 app/controllers/statuses_controller.rb:8:in `index'
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:14:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.6ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 10.4ms | Allocations: 1349)
+  Rendered layouts/_navbar.html.erb (Duration: 1.8ms | Allocations: 338)
+Completed 200 OK in 31267ms (Views: 31182.5ms | ActiveRecord: 7.4ms | Allocations: 1277518)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:15:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.5ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 699)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 118)
+Completed 200 OK in 56ms (Views: 51.9ms | ActiveRecord: 0.9ms | Allocations: 5279)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:16:07 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 144.6ms | Allocations: 83587)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 150.5ms | Allocations: 83919)
+Completed 500 Internal Server Error in 189ms (ActiveRecord: 2.8ms | Allocations: 90498)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12c2bda0>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/edit" for 10.0.2.2 at 2019-11-06 21:16:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"edit"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.3ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+Completed 404 Not Found in 8ms (ActiveRecord: 0.5ms | Allocations: 1803)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Status with 'id'=edit):
+  
+app/controllers/statuses_controller.rb:75:in `set_status'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:16:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 153.4ms | Allocations: 82919)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 154.3ms | Allocations: 82993)
+Completed 500 Internal Server Error in 159ms (ActiveRecord: 0.6ms | Allocations: 84193)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12cc0388>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:21:19 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 146.9ms | Allocations: 82925)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 147.7ms | Allocations: 82998)
+Completed 500 Internal Server Error in 155ms (ActiveRecord: 0.5ms | Allocations: 84183)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12e3b320>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:21:33 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 29.8ms | Allocations: 738)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 146)
+Completed 200 OK in 92ms (Views: 88.5ms | ActiveRecord: 0.0ms | Allocations: 5129)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:21:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.3ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 5.3ms | Allocations: 701)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 92ms (Views: 82.9ms | ActiveRecord: 0.6ms | Allocations: 5274)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:21:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 157.5ms | Allocations: 82922)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 158.3ms | Allocations: 82995)
+Completed 500 Internal Server Error in 165ms (ActiveRecord: 0.3ms | Allocations: 84175)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12f220b8>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:22:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 160.0ms | Allocations: 82927)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 161.0ms | Allocations: 83000)
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 1.0ms | Allocations: 84179)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12e65760>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:30:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 143.2ms | Allocations: 82926)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 144.2ms | Allocations: 82999)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 1.0ms | Allocations: 84269)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12eba940>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:30:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 159.7ms | Allocations: 82928)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 160.3ms | Allocations: 83001)
+Completed 500 Internal Server Error in 169ms (ActiveRecord: 0.7ms | Allocations: 84180)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12ee4678>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:30:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 161.0ms | Allocations: 82926)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 161.6ms | Allocations: 82999)
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 0.3ms | Allocations: 84178)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a12f1dc70>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:30:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 178.0ms | Allocations: 82928)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 179.2ms | Allocations: 83001)
+Completed 500 Internal Server Error in 192ms (ActiveRecord: 2.2ms | Allocations: 84180)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a1299da70>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:30:57 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 716)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 118)
+Completed 200 OK in 106ms (Views: 95.5ms | ActiveRecord: 0.9ms | Allocations: 5281)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:31:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 182.5ms | Allocations: 82920)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 183.7ms | Allocations: 82993)
+Completed 500 Internal Server Error in 196ms (ActiveRecord: 0.9ms | Allocations: 84169)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000562e06012db0>:0x00007f2a13117b70>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /home/vagrant/.rbenv/versions/2.6.4/bin/rake:23)
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:34:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:35:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 31914.3ms | Allocations: 1715630)
+  Rendered layouts/_navbar.html.erb (Duration: 3.3ms | Allocations: 433)
+Completed 200 OK in 32059ms (Views: 32044.9ms | ActiveRecord: 0.0ms | Allocations: 1724478)
+
+
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:35:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 17.4ms | Allocations: 1295)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 140)
+Completed 200 OK in 91ms (Views: 88.5ms | ActiveRecord: 0.0ms | Allocations: 6929)
+
+
+  Rendered pages/home.html.erb within layouts/application (Duration: 29332.9ms | Allocations: 1440417)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 140)
+Completed 200 OK in 29437ms (Views: 29435.6ms | ActiveRecord: 0.0ms | Allocations: 1444278)
+
+
+Started GET "/users" for 10.0.2.2 at 2019-11-06 21:35:38 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 20.8ms | Allocations: 5932)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 109ms (Views: 78.7ms | ActiveRecord: 7.5ms | Allocations: 11577)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:35:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 968)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 151ms (Views: 74.7ms | ActiveRecord: 2.7ms | Allocations: 9617)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:35:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 138.0ms | Allocations: 83133)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 144.9ms | Allocations: 83467)
+Completed 500 Internal Server Error in 178ms (ActiveRecord: 4.2ms | Allocations: 88303)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x00007f3ff6ed2640>:0x00007f3ff51af040>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:39:47 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 36.0ms | Allocations: 605)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 145)
+Completed 200 OK in 108ms (Views: 105.7ms | ActiveRecord: 0.0ms | Allocations: 4415)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-11-06 21:39:52 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 3.3ms | Allocations: 316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 119)
+Completed 200 OK in 83ms (Views: 73.4ms | ActiveRecord: 0.6ms | Allocations: 4894)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:39:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 702)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 119)
+Completed 200 OK in 71ms (Views: 65.8ms | ActiveRecord: 0.8ms | Allocations: 5275)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:39:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 164.5ms | Allocations: 82447)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 165.0ms | Allocations: 82520)
+Completed 500 Internal Server Error in 170ms (ActiveRecord: 0.6ms | Allocations: 83727)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x00007f3ff6ed2640>:0x00007f3ff6d9c960>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
+DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
+ (called from load at /home/vagrant/.rbenv/versions/2.6.4/bin/rake:23)
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:46:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 187.8ms | Allocations: 82161)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 195.8ms | Allocations: 82841)
+Completed 500 Internal Server Error in 327ms (ActiveRecord: 15.1ms | Allocations: 99017)
+
+
+  
+ActionView::Template::Error (undefined method `statuses_path' for #<#<Class:0x0000561d1f7ebe80>:0x0000561d1f7e9c48>
+Did you mean?  user_status_path):
+    1: <%= form_with(model: status, local: true) do |form| %>
+    2:   <% if status.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(status.errors.count, "error") %> prohibited this status from being saved:</h2>
+  
+app/views/statuses/_form.html.erb:1
+app/views/statuses/new.html.erb:3
