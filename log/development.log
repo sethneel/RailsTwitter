@@ -4992,3 +4992,126 @@ NoMethodError (undefined method `statuses' for nil:NilClass):
 app/controllers/statuses_controller.rb:19:in `new'
 DEPRECATION WARNING: Using `bin/rake routes` is deprecated and will be removed in Rails 6.1. Use `bin/rails routes` instead.
  (called from load at /home/vagrant/.rbenv/versions/2.6.4/bin/rake:23)
+Started GET "/" for 10.0.2.2 at 2019-11-06 20:57:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 27724.0ms | Allocations: 1260725)
+  Rendered layouts/_navbar.html.erb (Duration: 1.9ms | Allocations: 365)
+Completed 200 OK in 27861ms (Views: 27839.6ms | ActiveRecord: 0.0ms | Allocations: 1267162)
+
+
+Started GET "/users/1" for 10.0.2.2 at 2019-11-06 21:04:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 331)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 119)
+Completed 200 OK in 114ms (Views: 75.5ms | ActiveRecord: 6.0ms | Allocations: 11767)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:04:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 1054)
+
+
+  
+NoMethodError (undefined method `statuses' for nil:NilClass):
+  
+app/controllers/statuses_controller.rb:8:in `index'
+Started GET "/users/1/edit" for 10.0.2.2 at 2019-11-06 21:05:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 57.5ms | Allocations: 5224)
+  Rendered users/edit.html.erb within layouts/application (Duration: 65.3ms | Allocations: 5619)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 118)
+Completed 200 OK in 130ms (Views: 118.6ms | ActiveRecord: 0.6ms | Allocations: 10130)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:05:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 962)
+
+
+  
+NoMethodError (undefined method `statuses' for nil:NilClass):
+  
+app/controllers/statuses_controller.rb:18:in `new'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:06:15 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+  
+NoMethodError (undefined method `statuses' for nil:NilClass):
+  
+app/controllers/statuses_controller.rb:18:in `new'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-06 21:06:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 961)
+
+
+  
+NoMethodError (undefined method `statuses' for nil:NilClass):
+  
+app/controllers/statuses_controller.rb:18:in `new'
+Started GET "/" for 10.0.2.2 at 2019-11-06 21:06:30 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 21.6ms | Allocations: 602)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | Allocations: 145)
+Completed 200 OK in 113ms (Views: 110.6ms | ActiveRecord: 0.0ms | Allocations: 4404)
+
+
+Started GET "/users" for 10.0.2.2 at 2019-11-06 21:06:36 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:17
+  Rendered users/index.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1100)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 119)
+Completed 200 OK in 85ms (Views: 78.8ms | ActiveRecord: 1.0ms | Allocations: 5144)
+
+
+Started GET "/users/statuses" for 10.0.2.2 at 2019-11-06 21:06:43 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"statuses"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.5ms | Allocations: 1137)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=statuses):
+  
+app/controllers/users_controller.rb:67:in `set_user'
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-06 21:07:34 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 971)
+
+
+  
+NoMethodError (undefined method `statuses' for nil:NilClass):
+  
+app/controllers/statuses_controller.rb:8:in `index'
