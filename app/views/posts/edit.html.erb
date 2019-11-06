@@ -1,0 +1,4 @@
+<h1> Edit </h1>
+<%= render 'form', post: @post %>
+<%= link_to "Delete Post", "/posts/#{@post.id}", method: :DELETE %>
+<%= link_to "Display Post", "/posts/#{@post.id}", method: :GET %>

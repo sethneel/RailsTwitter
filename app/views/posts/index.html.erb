@@ -1,0 +1,21 @@
+    <div class="container">
+        <h3> Publications </h3>
+        <div class="row" align="left">
+            <% if @posts.size > 0 %>
+                <% @posts.each do |post| %>
+                    <div class="col-sm-6">
+                            <div> <h6> <%= post.title %> </h6> </div>
+                            <div> <%= post.content %> </div>
+                            <div>
+                                <%= link_to "Delete Post", "/posts/#{post.id}", method: :DELETE %> 
+                                <%= link_to "Edit Post", "/posts/#{post.id}/new", method: :GET %> 
+                            </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+        <div>
+            <%= link_to "Create Post", "/posts/new", method: :GET %>
+            <%= link_to "Home", "", method: :GET %>
+        </div>
+    </div>
