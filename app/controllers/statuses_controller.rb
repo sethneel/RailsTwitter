@@ -27,7 +27,7 @@ class StatusesController < ApplicationController
   # POST /statuses
   # POST /statuses.json
   def create
-    @status = @user.statuses.build(status_params)
+    @status = @user.statuses.build(content: status_params[:content])
 
     respond_to do |format|
       if @status.save
@@ -70,13 +70,13 @@ class StatusesController < ApplicationController
     @user = User.find(params[:user_id])
   end 
 
-    # Use callbacks to share common setup or constraints between actions.
-    def set_status
-      @status = Status.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_status
+    @status = Status.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def status_params
-      params.require(:status).permit(:user, :content)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def status_params
+    params.permit(:content, :user_id)
+  end
 end
