@@ -1,6 +1,6 @@
 <h1>Editing Status</h1>
 
-<%= render 'form', status: @status %>
+<%= render 'form', status: @status, user: @user %>
 
 <%= link_to 'Show', user_status_path(@user, @status) %> |
 <%= link_to 'Back', user_statuses_path(@user) %>
