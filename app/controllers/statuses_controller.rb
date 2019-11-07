@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-  before_action :set_user, except: :create
+  before_action :set_user
   before_action :set_status, only: [:show, :edit, :update, :destroy]
 
 
@@ -27,8 +27,7 @@ class StatusesController < ApplicationController
   # POST /statuses
   # POST /statuses.json
   def create
-    @user = status_params[:user]
-    status_content = status_params[:contnet]
+    status_content = status_params[:content]
     @status = @user.statuses.build(content: status_content)
 
     respond_to do |format|
@@ -79,6 +78,6 @@ class StatusesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def status_params
-      params.permit(:user, :content, :authenticity_token, :commit)
+      params.permit(:user, :content, :authenticity_token, :commit, :user_id)
     end
 end
