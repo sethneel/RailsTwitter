@@ -7160,3 +7160,134 @@ ActionController::ParameterMissing (param is missing or the value is empty: stat
   
 app/controllers/statuses_controller.rb:80:in `status_params'
 app/controllers/statuses_controller.rb:30:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:20:20 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"AaEakkJFOmdsiQg2vTu/UV4FgMpBuoKldvoJ6j1hF1vsEniV5+PEQxJ2nhPZfIvs2j5oeczh8lWkEtLI2D8Y8Q==", "content"=>"blahblah", "commit"=>"Save ", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (10.2ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "blahblah"], ["created_at", "2019-11-07 20:20:20.902100"], ["updated_at", "2019-11-07 20:20:20.902100"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 337ms (ActiveRecord: 27.5ms | Allocations: 122277)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x0000555d076918b0>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:21:45 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"AaEakkJFOmdsiQg2vTu/UV4FgMpBuoKldvoJ6j1hF1vsEniV5+PEQxJ2nhPZfIvs2j5oeczh8lWkEtLI2D8Y8Q==", "content"=>"blahblah", "commit"=>"Save ", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (0.9ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "blahblah"], ["created_at", "2019-11-07 20:21:45.455058"], ["updated_at", "2019-11-07 20:21:45.455058"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 193ms (ActiveRecord: 2.0ms | Allocations: 110703)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x0000555d0784a738>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:21:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"AaEakkJFOmdsiQg2vTu/UV4FgMpBuoKldvoJ6j1hF1vsEniV5+PEQxJ2nhPZfIvs2j5oeczh8lWkEtLI2D8Y8Q==", "content"=>"blahblah", "commit"=>"Save ", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+[31mUnpermitted parameters: :authenticity_token, :commit[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (0.5ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "blahblah"], ["created_at", "2019-11-07 20:21:51.310603"], ["updated_at", "2019-11-07 20:21:51.310603"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 191ms (ActiveRecord: 2.0ms | Allocations: 110560)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007ff47df10a30>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-07 20:24:10 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 21.2ms | Allocations: 3058)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 29.0ms | Allocations: 3694)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | Allocations: 337)
+Completed 200 OK in 26743ms (Views: 26654.8ms | ActiveRecord: 10.2ms | Allocations: 1283158)
+
+
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:26:50 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"QJoYUfIwNakProZ7a5n6/X147p9b4lAEXe25CQw/SGneJ03B4zqvfxZo5McQ1bGVdk33FBeb5EPrRQMfMT+tOQ==", "content"=>"blabh blah\n", "commit"=>"Save ", "user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (3.5ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "blabh blah\n"], ["created_at", "2019-11-07 20:26:50.804380"], ["updated_at", "2019-11-07 20:26:50.804380"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 277ms (ActiveRecord: 5.6ms | Allocations: 110956)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007fd3e1f30c70>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:41:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"QJoYUfIwNakProZ7a5n6/X147p9b4lAEXe25CQw/SGneJ03B4zqvfxZo5McQ1bGVdk33FBeb5EPrRQMfMT+tOQ==", "content"=>"blabh blah\n", "commit"=>"Save ", "user_id"=>"1"}
+Completed 400 Bad Request in 7ms (ActiveRecord: 0.0ms | Allocations: 793)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: status):
+  
+app/controllers/statuses_controller.rb:82:in `status_params'
+app/controllers/statuses_controller.rb:30:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-07 20:41:59 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"QJoYUfIwNakProZ7a5n6/X147p9b4lAEXe25CQw/SGneJ03B4zqvfxZo5McQ1bGVdk33FBeb5EPrRQMfMT+tOQ==", "content"=>"blabh blah\n", "commit"=>"Save ", "user_id"=>"1"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 646)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: status):
+  
+app/controllers/statuses_controller.rb:82:in `status_params'
+app/controllers/statuses_controller.rb:30:in `create'
