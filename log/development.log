@@ -7904,3 +7904,378 @@ Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.4ms | Allocations: 1
 ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
   
 app/controllers/statuses_controller.rb:30:in `create'
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-07 22:33:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 24.6ms | Allocations: 6031)
+  Rendered layouts/_navbar.html.erb (Duration: 2.4ms | Allocations: 336)
+Completed 200 OK in 33205ms (Views: 33068.3ms | ActiveRecord: 34.5ms | Allocations: 1281979)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-08 00:14:54 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 72.5ms | Allocations: 4564)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 81.3ms | Allocations: 4918)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 118)
+Completed 200 OK in 181ms (Views: 164.7ms | ActiveRecord: 0.8ms | Allocations: 9698)
+
+
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:14:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"u+ywxvFhqGI0BlwTWzQBbBpMomAMim2XtkXDhHsVQLUlUeVW4GsytC3APq8geEoEEXm760Dz2dAA7XmSRhWl5Q==", "status"=>{"content"=>""}, "commit"=>"Create Status", "user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (3.0ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", ""], ["created_at", "2019-11-08 00:14:55.924319"], ["updated_at", "2019-11-08 00:14:55.924319"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 279ms (ActiveRecord: 4.9ms | Allocations: 110948)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007f00ba54d708>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-08 00:18:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 2.1ms | Allocations: 537)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 634)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 117)
+Completed 200 OK in 72ms (Views: 66.5ms | ActiveRecord: 0.8ms | Allocations: 5249)
+
+
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:18:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"buPweCqRqR2NSwWpbe1aPn0N8qCd/IONZPsGPP3QTXTwXqXoO5szy5SNZxUWoRFWdjjrK9GFN8rSU7wqwNCoJA==", "status"=>{"content"=>"asdf"}, "commit"=>"Create Status", "user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (0.6ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "asdf"], ["created_at", "2019-11-08 00:18:25.139003"], ["updated_at", "2019-11-08 00:18:25.139003"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 1.5ms | Allocations: 110665)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007f00ba491da0>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:18:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"buPweCqRqR2NSwWpbe1aPn0N8qCd/IONZPsGPP3QTXTwXqXoO5szy5SNZxUWoRFWdjjrK9GFN8rSU7wqwNCoJA==", "status"=>{"content"=>"asdf"}, "commit"=>"Create Status", "user_id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (0.7ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "asdf"], ["created_at", "2019-11-08 00:18:26.506145"], ["updated_at", "2019-11-08 00:18:26.506145"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 197ms (ActiveRecord: 2.9ms | Allocations: 110655)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007f00ba309fa0>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:34:in `block (2 levels) in create'
+app/controllers/statuses_controller.rb:32:in `create'
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-08 00:19:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 20.2ms | Allocations: 2696)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 27.2ms | Allocations: 3483)
+  Rendered layouts/_navbar.html.erb (Duration: 1.3ms | Allocations: 337)
+Completed 200 OK in 28555ms (Views: 28441.6ms | ActiveRecord: 10.8ms | Allocations: 1282824)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-08 00:20:48 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 1.2ms | Allocations: 542)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 639)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 117)
+Completed 200 OK in 75ms (Views: 69.8ms | ActiveRecord: 0.9ms | Allocations: 5268)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:20:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.7ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 2607)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 119)
+Completed 200 OK in 87ms (Views: 69.8ms | ActiveRecord: 2.7ms | Allocations: 7419)
+
+
+Started GET "/users/1/statuses/new" for 10.0.2.2 at 2019-11-08 00:20:56 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#new as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/new.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 1.8ms | Allocations: 540)
+  Rendered statuses/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 636)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 117)
+Completed 200 OK in 71ms (Views: 66.0ms | ActiveRecord: 0.5ms | Allocations: 5244)
+
+
+Started POST "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:21:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#create as JS
+  Parameters: {"authenticity_token"=>"WYepZxIXpsuopWvUVl0GJA8JyfIQZrw4JkeL6llbNBTHOvz3Ax08HbFjCWgtEU1MBDzQeVwfCH+Q7zH8ZFvRRA==", "status"=>{"content"=>"litty"}, "commit"=>"Create Status", "user_id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[36mStatus Create (0.7ms)[0m  [1m[32mINSERT INTO "statuses" ("user_id", "content", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["content", "litty"], ["created_at", "2019-11-08 00:21:00.208473"], ["updated_at", "2019-11-08 00:21:00.208473"]]
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:33:in `block in create'
+Redirected to http://localhost:3000/users/1/statuses/14
+Completed 200 OK in 16ms (ActiveRecord: 3.3ms | Allocations: 3692)
+
+
+Started GET "/users/1/statuses/14" for 10.0.2.2 at 2019-11-08 00:21:00 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.3ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+  Rendering statuses/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/statuses/show.html.erb:5
+  Rendered statuses/show.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1157)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 119)
+Completed 200 OK in 85ms (Views: 70.0ms | ActiveRecord: 1.2ms | Allocations: 6403)
+
+
+Started GET "/users/1/statuses/14/edit" for 10.0.2.2 at 2019-11-08 00:21:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#edit as HTML
+  Parameters: {"user_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.7ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+  Rendering statuses/edit.html.erb within layouts/application
+  Rendered statuses/_form.html.erb (Duration: 1.7ms | Allocations: 594)
+  Rendered statuses/edit.html.erb within layouts/application (Duration: 7.3ms | Allocations: 851)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 118)
+Completed 200 OK in 89ms (Views: 73.8ms | ActiveRecord: 3.6ms | Allocations: 5996)
+
+
+Started PATCH "/users/1/statuses/14" for 10.0.2.2 at 2019-11-08 00:21:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#update as JS
+  Parameters: {"authenticity_token"=>"edkhvqK/X0oLAx8IeO2N/OGqhEuNP2uRXlgO0fkSg54iizTVQuhojWArlz4CtfbmTdT35ZUqHwm6L1mBg0vZMA==", "status"=>{"content"=>"not as litty"}, "commit"=>"Update Status", "user_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.5ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:47:in `block in update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:47:in `block in update'
+  [1m[36mStatus Update (7.6ms)[0m  [1m[33mUPDATE "statuses" SET "content" = $1, "updated_at" = $2 WHERE "statuses"."id" = $3[0m  [["content", "not as litty"], ["updated_at", "2019-11-08 00:21:09.109336"], ["id", 14]]
+  ↳ app/controllers/statuses_controller.rb:47:in `block in update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:47:in `block in update'
+Redirected to 
+Completed 500 Internal Server Error in 235ms (ActiveRecord: 10.4ms | Allocations: 112491)
+
+
+  
+NoMethodError (undefined method `status_url' for #<StatusesController:0x00007f1d3aeb1348>
+Did you mean?  status):
+  
+app/controllers/statuses_controller.rb:48:in `block (2 levels) in update'
+app/controllers/statuses_controller.rb:46:in `update'
+Started GET "/users/1/statuses/14" for 10.0.2.2 at 2019-11-08 00:21:13 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#show as HTML
+  Parameters: {"user_id"=>"1", "id"=>"14"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.5ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+  Rendering statuses/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/statuses/show.html.erb:5
+  Rendered statuses/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 827)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | Allocations: 118)
+Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 1.3ms | Allocations: 5815)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:21:17 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.5ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2434)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 118)
+Completed 200 OK in 83ms (Views: 73.4ms | ActiveRecord: 1.1ms | Allocations: 7002)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:22:21 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2433)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 118)
+Completed 200 OK in 90ms (Views: 83.1ms | ActiveRecord: 0.9ms | Allocations: 6996)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:22:23 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.6ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 5.8ms | Allocations: 2433)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 118)
+Completed 200 OK in 62ms (Views: 54.6ms | ActiveRecord: 1.0ms | Allocations: 6998)
+
+
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:22:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.3ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2433)
+  Rendered layouts/_navbar.html.erb (Duration: 0.7ms | Allocations: 118)
+Completed 200 OK in 61ms (Views: 55.0ms | ActiveRecord: 0.6ms | Allocations: 6996)
+
+
+Started DELETE "/users/1/statuses/1" for 10.0.2.2 at 2019-11-08 00:22:29 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CE3zfNY7FV7HwZV76NRLY/lxKlJJfp3AvtTk4IAoy36W8KbsxzGPiN4H98eTmAAL8kQz2QUHKYcIfF72vSguLg==", "user_id"=>"1", "id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  [1m[36mStatus Load (0.6ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:75:in `set_status'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/statuses_controller.rb:60:in `destroy'
+  [1m[36mStatus Destroy (0.4ms)[0m  [1m[31mDELETE FROM "statuses" WHERE "statuses"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/statuses_controller.rb:60:in `destroy'
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/statuses_controller.rb:60:in `destroy'
+Completed 500 Internal Server Error in 231ms (ActiveRecord: 3.8ms | Allocations: 110948)
+
+
+  
+NameError (undefined local variable or method `statuses_url' for #<StatusesController:0x00007f1d3a30cd08>
+Did you mean?  status=):
+  
+app/controllers/statuses_controller.rb:62:in `block (2 levels) in destroy'
+app/controllers/statuses_controller.rb:61:in `destroy'
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:24:04 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/vagrant/CIS-196/hw3/app/controllers/statuses_controller.rb:48: `@,' is not allowed as an instance variable name
+/home/vagrant/CIS-196/hw3/app/controllers/statuses_controller.rb:48: syntax error, unexpected end-of-input
+..._status_path(@user, @status), @, notice: 'Status was success...
+...                              ^):
+  
+app/controllers/statuses_controller.rb:48: `@,' is not allowed as an instance variable name
+app/controllers/statuses_controller.rb:48: syntax error, unexpected end-of-input
+app/controllers/statuses_controller.rb:48: `@,' is not allowed as an instance variable name
+app/controllers/statuses_controller.rb:48: syntax error, unexpected end-of-input
+app/controllers/statuses_controller.rb:48: `@,' is not allowed as an instance variable name
+app/controllers/statuses_controller.rb:48: syntax error, unexpected end-of-input
+Started GET "/users/1/statuses" for 10.0.2.2 at 2019-11-08 00:24:55 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StatusesController#index as HTML
+  Parameters: {"user_id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/statuses_controller.rb:70:in `set_user'
+  Rendering statuses/index.html.erb within layouts/application
+  [1m[36mStatus Load (0.4ms)[0m  [1m[34mSELECT "statuses".* FROM "statuses" WHERE "statuses"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/statuses/index.html.erb:15
+  Rendered statuses/index.html.erb within layouts/application (Duration: 18.5ms | Allocations: 6220)
+Started GET "/users/1" for 10.0.2.2 at 2019-11-08 00:25:01 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 329)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 336)
+Completed 200 OK in 25543ms (Views: 25530.8ms | ActiveRecord: 0.9ms | Allocations: 1705266)
+
+
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 123)
+Completed 200 OK in 32122ms (Views: 32060.1ms | ActiveRecord: 8.4ms | Allocations: 2257091)
+
+
+Started GET "/" for 10.0.2.2 at 2019-11-08 00:49:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application

@@ -31,8 +31,8 @@ class StatusesController < ApplicationController
 
     respond_to do |format|
       if @status.save
-        format.html { redirect_to @status, notice: 'Status was successfully created.' }
-        format.json { render :show, status: :created, location: @status }
+        format.html { redirect_to user_status_path(@user, @status), notice: 'Status was successfully created.' }
+        format.json { render :show, status: :created, location: user_status_path(@user, @status) }
       else
         format.html { render :new }
         format.json { render json: @status.errors, status: :unprocessable_entity }
@@ -45,8 +45,8 @@ class StatusesController < ApplicationController
   def update
     respond_to do |format|
       if @status.update(status_params)
-        format.html { redirect_to @status, notice: 'Status was successfully updated.' }
-        format.json { render :show, status: :ok, location: @status }
+        format.html { redirect_to user_status_path(@user, @status), notice: 'Status was successfully updated.' }
+        format.json { render :show, status: :ok, location: user_status_path(@user, @status)}
       else
         format.html { render :edit }
         format.json { render json: @status.errors, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class StatusesController < ApplicationController
   def destroy
     @status.destroy
     respond_to do |format|
-      format.html { redirect_to statuses_url, notice: 'Status was successfully destroyed.' }
+      format.html { redirect_to user_statuses_path(@user), notice: 'Status was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
