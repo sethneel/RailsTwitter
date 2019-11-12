@@ -16234,3 +16234,76 @@ Processing by SessionsController#create as JS
 Completed 200 OK in 79ms (Views: 68.5ms | ActiveRecord: 0.9ms | Allocations: 7613)
 
 
+Started GET "/" for 10.0.2.2 at 2019-11-12 06:54:42 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (Duration: 19723.2ms | Allocations: 1261237)
+  Rendered layouts/_navbar.html.erb (Duration: 1.5ms | Allocations: 372)
+Completed 200 OK in 19821ms (Views: 19805.6ms | ActiveRecord: 0.0ms | Allocations: 1267595)
+
+
+Started GET "/login" for 10.0.2.2 at 2019-11-12 06:55:25 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 15.0ms | Allocations: 4017)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 19.9ms | Allocations: 4408)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 101)
+Completed 200 OK in 91ms (Views: 69.8ms | ActiveRecord: 3.2ms | Allocations: 14821)
+
+
+Started POST "/login" for 10.0.2.2 at 2019-11-12 06:55:32 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#create as JS
+  Parameters: {"authenticity_token"=>"hBE1H+d5tlMYFx+NU7ediU4+Ro4KRrAAdx/c2xo9+qaLWlD7rim6VpXatuUxx7NJiUyJnVAnk/RM9mypsH1rJg==", "email"=>"adf", "password_hash"=>"[FILTERED]", "commit"=>"Save "}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "adf"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:9:in `create'
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 1.0ms | Allocations: 2207)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 2453)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 91)
+Completed 200 OK in 48ms (Views: 41.0ms | ActiveRecord: 0.9ms | Allocations: 7641)
+
+
+Started GET "/login" for 10.0.2.2 at 2019-11-12 06:55:35 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/_form.html.erb (Duration: 1.4ms | Allocations: 2227)
+  Rendered sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 2316)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 95)
+Completed 200 OK in 55ms (Views: 53.4ms | ActiveRecord: 0.0ms | Allocations: 6116)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2019-11-12 06:55:37 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.5ms | Allocations: 1728)
+  Rendered users/new.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2062)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 76)
+Completed 200 OK in 59ms (Views: 54.8ms | ActiveRecord: 0.0ms | Allocations: 6574)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2019-11-12 06:55:41 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.9ms | Allocations: 1097)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 73)
+Completed 200 OK in 56ms (Views: 55.6ms | ActiveRecord: 0.0ms | Allocations: 5019)
+
+
+Started GET "/users/new" for 10.0.2.2 at 2019-11-12 06:55:44 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.3ms | Allocations: 1097)
+  Rendered users/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1179)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 73)
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.0ms | Allocations: 5032)
+
+
