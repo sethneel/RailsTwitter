@@ -1,7 +1,8 @@
 <%if logged_in? %>
     <h1> Welcome <%= current_user.first_name %> </h1>
 <%else%>
-    <h1> Please Login! </h1>
+    <h1> User Login </h1>
     <%= render 'form', user: @user, error_message: @error_message %>
 <%end%>
 
+<%= link_to 'Login', '/login' %>
