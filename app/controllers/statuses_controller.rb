@@ -1,7 +1,8 @@
 class StatusesController < ApplicationController
-  before_action :set_user
+  before_action :set_user, :authenticate_user, :current_user
   before_action :set_status, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_user, only: [:create, :edit, :update, :destroy]
+  
   # GET /statuses
   # GET /statuses.json
   def index
@@ -77,4 +78,10 @@ class StatusesController < ApplicationController
     def status_params
       params.require(:status).permit(:content)
     end
+
+    def check_user
+      if @current_user.id != session[:user_id]
+        redirect_to '/login'
+      end
+    end 
 end
