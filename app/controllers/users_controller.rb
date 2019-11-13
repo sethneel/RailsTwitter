@@ -1,8 +1,9 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :follow, :unfollow]
-  before_action :current_user, except: :new
-  before_action :authenticate_user, except: [:new, :create]
+# frozen_string_literal: true
 
+class UsersController < ApplicationController
+  before_action :set_user, only: %i[show edit update destroy follow unfollow]
+  before_action :current_user, except: :new
+  before_action :authenticate_user, except: %i[new create]
 
   # GET /users
   # GET /users.json
@@ -11,14 +12,17 @@ class UsersController < ApplicationController
   end
 
   def home
-    # get array of all statuses 
+    # get array of all statuses
     @status_array = []
     @current_user.followings.each do |user|
-      @status_array << user.statuses
-    end 
-    @status_array.sort_by(&:updated_at)
-    binding.pry
-  end 
+      next if user.statuses.empty?
+
+      user.statuses.each do |status|
+        @status_array << status
+      end
+    end
+    @status_array.sort_by(&:updated_at).reverse! unless @status_array.empty?
+  end
 
   # GET /users/1
   # GET /users/1.json
@@ -33,9 +37,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if @current_user.id != @user.id
-      render 'index'
-    end
+    render 'index' if @current_user.id != @user.id
   end
 
   # POST /users
@@ -89,26 +91,26 @@ class UsersController < ApplicationController
 
   # POST /users/user_id/follow
   def follow
-    @followership = Followership.new({follower_user: @current_user, followed_user: @user})
+    @followership = Followership.new(follower_user: @current_user, followed_user: @user)
     @followership.save
     redirect_to @user
-  end 
+  end
 
   def unfollow
-    @followership = Followership.where({follower_user_id: @current_user.id, followed_user: @user.id})
+    @followership = Followership.where(follower_user_id: @current_user.id, followed_user: @user.id)
     @followership.destroy
     redirect_to @user
-  end 
-
+  end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password_hash)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :email, :password_hash)
+  end
 end
