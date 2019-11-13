@@ -14,13 +14,12 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<a class="btn btn-warning" href= <%= edit_user_path(@user) %> role="button">Edit</a>
+<a class="btn btn-secondary" href= <%= users_path %> role="button">Back</a>
 <% if @followed %>
-  <%= link_to 'Unfollow', "#{@user.id}/unfollow" %>
+  <a class="btn btn-danger" href= <%= "#{@user.id}/unfollow" %> role="button">Unfollow</a>
 <% else %>
-  <%= link_to 'Follow', "#{@user.id}/follow" %>
+    <a class="btn btn-info" href= <%= "#{@user.id}/follow" %> role="button">Follow</a>
 <% end %> 
 <button type="button" class="btn btn-primary"> Following: <%= @user.followings.size %> </button>
 <button type="button" class="btn btn-success"> Followers: <%= @user.followers.size %> </button>

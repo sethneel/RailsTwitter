@@ -1,10 +1,16 @@
     <div class="container">
-        <h3> News Feed </h3>
-        <a class="btn btn-success" href= <%= "/users/#{@current_user.id}/statuses/new" %> role="button"> New Status</a>
+        <div class="row" align="left">
+            <div class='p-3 bg-white'>
+                <a class="btn btn-success" href= <%= "/users/#{@current_user.id}/statuses/new" %> role="button"> New Status</a> 
+            </div> 
+        </div>
+    <div>
+
+    <div class="container">
         <div class="row" align="left">
             <% if @status_array.size > 0 %>
                 <% @status_array.each do |status| %>
-                    <div class="col-sm-6">
+                    <div class="mb-2 bg-light text-grey col-sm-6">
                             <div> <h6> <%= User.find(status.user_id).first_name %> <%= User.find(status.user_id).last_name %> </h6> </div>
                             <div> <%= status.content %> </div>
                     </div>

@@ -1,8 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @status.user %>
+  <strong>First name:</strong>
+  <%= @status.user.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @status.user.last_name %>
 </p>
 
 <p>
@@ -10,5 +15,6 @@
   <%= @status.content %>
 </p>
 
-<%= link_to 'Edit', edit_user_status_path(@user, @status) %> |
-<%= link_to 'Back', user_statuses_path(@user) %>
+<a class="btn btn-primary" href= <%= edit_user_status_path(@user, @status) %> role="button">Edit </a>
+
+

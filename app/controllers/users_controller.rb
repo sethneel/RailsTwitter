@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.where.not(id: @current_user.id)
   end
 
   def home
@@ -97,8 +97,8 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    @followership = Followership.where(follower_user_id: @current_user.id, followed_user: @user.id)
-    @followership.destroy
+    @followership = Followership.where(follower_user_id: @current_user.id, followed_user: @user.id)[0]
+    @followership.destroy!
     redirect_to @user
   end
 

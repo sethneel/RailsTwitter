@@ -1,28 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<h3>Users</h3>
 
 <table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
-        <td><%= user.email %></td>
+        <td> <b> first name: </b> <%= user.first_name %></td>
+        <td> <b> last name: </b> <%= user.last_name %></td>
+        <td> <b> email: </b> <%= user.email%></td>
         <td> <a class="btn btn-primary" href= <%= "/users/#{user.id}" %> role="button">Profile</a> </td>
-      <% if @current_user.id == user.id %>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
       </tr>
     <% end %>
   </tbody>

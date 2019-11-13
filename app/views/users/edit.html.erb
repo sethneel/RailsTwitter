@@ -1,6 +1,12 @@
-<h1>Editing User</h1>
+<div class="container">
+    <h3>Update User Profile</h3>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+    <%= render 'form', user: @user %>
+</div>
+<div class="container">
+    <div class="row" align="left">
+        <div class='p-3 bg-white'>
+            <a class="btn btn-primary" href= <%= user_path(@user) %> role="button">Profile</a>
+        </div>
+    </div>
+</div>

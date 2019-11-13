@@ -1,5 +1,12 @@
-<h1>Register</h1>
+<div class="container">
+    <h3>Register</h3>
+    <%= render 'form', user: @user %>
+</div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Login', '/login' %>
+<div class="container">
+    <div class="row" align="left">
+        <div class='p-3 bg-white'>
+            <a class="btn btn-primary" href= <%= "/login" %> role="button">Login</a>
+        </div>
+    </div>
+</div>
