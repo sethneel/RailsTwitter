@@ -1,0 +1,13 @@
+    <div class="container">
+        <h3> News Feed </h3>
+        <div class="row" align="left">
+            <% if @status_array.size > 0 %>
+                <% @status_array.each do |status| %>
+                    <div class="col-sm-6">
+                            <div> <h6> <%= User.find(status.user_id).first_name  User.find(status.user_id).last_name %> </h6> </div>
+                            <div> <%= status.content %> </div>
+                    </div>
+                <% end %>
+            <% end %>
+        </div>
+    </div>

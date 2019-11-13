@@ -5,13 +5,14 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
+    # login
     def create
         @user = User.find_by(email:params[:email])
-        if @user && @user.password == params[:password_hash]
+        if @user && (BCrypt::Password.new(@user.password) == params[:password_hash])
             session[:user_id] = @user.id
             # clear message in case of previous login attempts
             @error_message = nil
-            redirect_to user_statuses_path(@user)
+            redirect_to '/home'
         else
             # error message for login page
             @error_message = 'Username or Password Incorrect.'
@@ -22,6 +23,6 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to '/home'
+        redirect_to '/login'
     end
 end 

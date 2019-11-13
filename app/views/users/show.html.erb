@@ -17,3 +17,11 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% if @followed %>
+  <%= link_to 'Unfollow', "#{@user.id}/unfollow" %>
+<% else %>
+  <%= link_to 'Follow', "#{@user.id}/follow" %>
+<% end %> 
+<button type="button" class="btn btn-primary"> Following: <%= @user.followings.size %> </button>
+<button type="button" class="btn btn-success"> Followers: <%= @user.followers.size %> </button>
+

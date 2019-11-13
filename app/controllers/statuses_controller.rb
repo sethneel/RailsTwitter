@@ -1,7 +1,6 @@
 class StatusesController < ApplicationController
   before_action :set_user, :authenticate_user, :current_user
   before_action :set_status, only: [:show, :edit, :update, :destroy]
-  before_action :check_user, only: [:create, :edit, :update, :destroy]
   
   # GET /statuses
   # GET /statuses.json
@@ -21,6 +20,9 @@ class StatusesController < ApplicationController
 
   # GET /statuses/1/edit
   def edit
+    if @current_user.id != @user.id
+      render 'index'
+    end
   end
 
   # POST /statuses
@@ -42,13 +44,17 @@ class StatusesController < ApplicationController
   # PATCH/PUT /statuses/1
   # PATCH/PUT /statuses/1.json
   def update
-    respond_to do |format|
-      if @status.update(status_params)
-        format.html { redirect_to user_status_path(@user, @status), notice: 'Status was successfully updated.' }
-        format.json { render :show, status: :ok, location: user_status_path(@user, @status)}
-      else
-        format.html { render :edit }
-        format.json { render json: @status.errors, status: :unprocessable_entity }
+    if @current_user.id != @user.id
+      render 'index'
+    else
+      respond_to do |format|
+        if @status.update(status_params)
+          format.html { redirect_to user_status_path(@user, @status), notice: 'Status was successfully updated.' }
+          format.json { render :show, status: :ok, location: user_status_path(@user, @status)}
+        else
+          format.html { render :edit }
+          format.json { render json: @status.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -56,10 +62,14 @@ class StatusesController < ApplicationController
   # DELETE /statuses/1
   # DELETE /statuses/1.json
   def destroy
-    @status.destroy
-    respond_to do |format|
-      format.html { redirect_to user_statuses_path(@user), notice: 'Status was successfully destroyed.' }
-      format.json { head :no_content }
+    if @current_user.id != @user.id
+      render 'index'
+    else
+      @status.destroy
+      respond_to do |format|
+        format.html { redirect_to user_statuses_path(@user), notice: 'Status was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 
@@ -79,9 +89,4 @@ class StatusesController < ApplicationController
       params.require(:status).permit(:content)
     end
 
-    def check_user
-      if @current_user.id != session[:user_id]
-        redirect_to '/login'
-      end
-    end 
 end
